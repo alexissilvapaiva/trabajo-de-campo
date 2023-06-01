@@ -5,7 +5,7 @@ import mongoImg from './img/mongoImagen.png'
 import nodeImg from './img/nodeImagen.png'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-
+import Swal from 'sweetalert2'
 
 export default function LoginPage() {
       const navegar = useNavigate();
@@ -26,10 +26,9 @@ export default function LoginPage() {
       })
           .then(res => {
                   if(res.data){
-                    navegar('/home')
-               
+                    navegar('/agregaralumno')
                   }
-          }).catch(err => alert(err))
+          }).catch(() => {Swal.fire('ERROR!','Ingrese nuevamente los datos')})
       }
   
   return (
