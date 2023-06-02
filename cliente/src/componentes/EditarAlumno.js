@@ -32,7 +32,8 @@ function editarAlumno() {
     nombre : nombre,
    apellido: apellido,
    dni : dni,
-   tutor: tutor
+   tutor: tutor,
+   _id : params._id
   }
   axios.post('/actualizaralumno' , actualizarAlumno) 
   .then(res => {Swal.fire('LISTO!','USUARIO ACTUALIZADO')},
