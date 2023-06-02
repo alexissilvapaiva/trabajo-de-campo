@@ -42,12 +42,12 @@ const crearAlumno = async (req, res) => {
 
 //actualizarAlumno() * !! se pasa por body, no por params.
 const upDateAlumno = async (req, res) => {
-     const { _id , nombre, apellido, dni, tutor } = req.body;
-        await AlumnosDB.findByIdAndUpdate( _id, {
-          nombre : nombre,
-          apellido : apellido,
-          dni: dni,
-          tutor: tutor
+     //const { _id , nombre, apellido, dni, tutor } = req.body;
+        await AlumnosDB.findByIdAndUpdate( {_id : req.body._id }, {
+          nombre : req.body.nombre,
+          apellido : req.body.apellido,
+          dni: req.body.dni,
+          tutor: req.body.tutor
         }).then ( () => {
           res.send('Se actualizo Correctamente');
         }).catch(error => {
@@ -57,8 +57,7 @@ const upDateAlumno = async (req, res) => {
 
 //borrarAlumno()
 const deleteAlumno = async (req,res) => {
-    const { alumnoId } = req.body._id;
-     await AlumnosDB.findByIdAndDelete(alumnoId)
+     await AlumnosDB.findByIdAndDelete({_id : req.body._id})
      .then( () => {
       res.send('Alumno Eliminado');
      })
