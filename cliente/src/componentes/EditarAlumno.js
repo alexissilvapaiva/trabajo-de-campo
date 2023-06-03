@@ -25,7 +25,7 @@ useEffect(() => {
       setDni(dataAlumno.dni);
       setTutor(dataAlumno.tutor);
  })
-}, [])
+},)
 
 function editarAlumno() {
   const actualizarAlumno = {

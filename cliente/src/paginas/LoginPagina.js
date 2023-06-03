@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './cssPages/LoginPage.css'
+import { Alert } from 'react-bootstrap'
 import reactImg from './img/imagen1r.png'
 import mongoImg from './img/mongoImagen.png'
 import nodeImg from './img/nodeImagen.png'
@@ -11,7 +12,7 @@ export default function LoginPage() {
       const navegar = useNavigate();
       const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
-
+    const[error, setError]= useState(false);
       axios.defaults.withCredentials = true;
 
       
@@ -21,19 +22,30 @@ export default function LoginPage() {
           password: password
   }
         e.preventDefault();
-         await axios.post('/login',usuario,{
+
+        try {
+           const {data} = await axios.post('/login',usuario,{
         headers: {'Content-Type': 'application/json'}
       })
-          .then(res => {
+      console.log(data);
+      localStorage.setItem('userInfo', JSON.stringify(data))
+          /*.then(res => {
                   if(res.data){
                     navegar('/agregaralumno')
                   }
-          }).catch(() => {Swal.fire('ERROR!','Ingrese nuevamente los datos')})
+          }).catch(() => {Swal.fire('ERROR!','Ingrese nuevamente los datos')})*/
+             navegar('/agregaralumno')
+        } catch (error) {
+          setError(error.response.data.msg)
+        }
       }
   
   return (
     <div className="jumbotron">
   <div className="container">
+    {error && (
+        <Alert variant='danger'> {error}</Alert>
+      )}
     <span className="glyphicon glyphicon-list-alt"></span>
     <h2>LOGIN</h2>
     <div>
