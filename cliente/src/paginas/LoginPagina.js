@@ -1,51 +1,55 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './cssPages/LoginPage.css'
 import { Alert } from 'react-bootstrap'
 import reactImg from './img/imagen1r.png'
 import mongoImg from './img/mongoImagen.png'
 import nodeImg from './img/nodeImagen.png'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import Swal from 'sweetalert2'
+import {UserContext} from '../componentes/contex/UsersContext';
+//import axios from 'axios'
+//import Swal from 'sweetalert2'
 
 export default function LoginPage() {
       const navegar = useNavigate();
       const [email, setEmail] = useState('');
-     const [password, setPassword] = useState('');
-    const[error, setError]= useState(false);
-      axios.defaults.withCredentials = true;
+      const [password, setPassword] = useState('');
+      const[error, setError]= useState('');
+      const {inicioSesion, dataUser, errorUser } = useContext(UserContext);
 
-      
+
       const handleSubmit = async (e) => {
-              const usuario = {
+         inicioSesion(email,password)
+        console.log(dataUser);
+        //if(errorUser) setError(errorUser);
+        e.preventDefault();
+        navegar('/home');
+       /*
+          const usuario = {
            email: email,
           password: password
   }
-        e.preventDefault();
-
-        try {
+       try {
            const {data} = await axios.post('/login',usuario,{
         headers: {'Content-Type': 'application/json'}
       })
       console.log(data);
       localStorage.setItem('userInfo', JSON.stringify(data))
-          /*.then(res => {
-                  if(res.data){
-                    navegar('/agregaralumno')
-                  }
-          }).catch(() => {Swal.fire('ERROR!','Ingrese nuevamente los datos')})*/
-             navegar('/agregaralumno')
+          ///.then(res => {
+                 // if(res.data){
+               //     navegar('/agregaralumno')
+                //  }
+          //}).catch(() => {Swal.fire('ERROR!','Ingrese nuevamente los datos')})
+             navegar('/home')
         } catch (error) {
-          setError(error.response.data.msg)
+          setError(error.response.data.msg)*/
         }
-      }
-  
+      
   return (
     <div className="jumbotron">
   <div className="container">
-    {error && (
+    { error && (
         <Alert variant='danger'> {error}</Alert>
-      )}
+    )}
     <span className="glyphicon glyphicon-list-alt"></span>
     <h2>LOGIN</h2>
     <div>
