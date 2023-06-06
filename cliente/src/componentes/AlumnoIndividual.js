@@ -24,8 +24,8 @@ function borrarAlumno(_id) {
     dni : dni,
     tutor : tutor 
 */
-  return (
-    <div className='container'>
+/*
+  <div className='container'>
         <div className='row'></div>
           <div className='col-sm-6 offset-3'>
               <ul className='list-group'> 
@@ -40,7 +40,32 @@ function borrarAlumno(_id) {
               <hr className='mt-4'/>
 
           </div>
-      </div>
+      </div>*/
+
+  return (
+
+                                    <tr key={alumno._id}>
+                                        <td>{alumno.nombre}</td>
+                                        <td>{alumno.apellido}</td>
+                                        <td>{alumno.dni}</td>
+                                        <td>{alumno.tutor}</td>
+                                        <td>
+                                        <button type="button" class="btn btn-danger"
+                                           onClick={()=> {borrarAlumno(alumno._id)}}
+                                        >
+                                            <i className="tiny material-icons">BORRAR</i>
+                                        </button>
+                                        &nbsp;
+                                        <Link to={`/editaralumno/${alumno._id}`}>
+                                          
+                                        <button type="button" class="btn btn-success"
+                                        >
+                                            <i className="tiny material-icons">EDITAR</i>
+                                        </button>
+                                                           </Link>
+                                        </td>
+                                    </tr>    
+                                    
   )
 }
 

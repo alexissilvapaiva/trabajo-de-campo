@@ -10,23 +10,23 @@ import EditarUsuario from '../componentes/EditarAlumno'
 import Nav from '../componentes/Nav'
 import RutasProtegidas from './RutasProtegidas'
 import { UserContextProvider } from '../componentes/contex/UsersContext'
+import Footer from '../componentes/Footer/Footer'
 export default function AppRouter() {
   
   return (
     <UserContextProvider>    
       <BrowserRouter>
-   <Nav/>
+        <Nav/>
         <Routes>
             <Route exact path='/'  element={<LoginPagina/>}></Route>
              <Route exact path='*'       element={<NotFoundPage/>}></Route> 
-             <Route element={<RutasProtegidas/>}>
             <Route exact path='/home'       element={<HomePagina/> }></Route>
             <Route exact path='/registrar'   element={<AltaPagina/>}></Route> 
              <Route path='/listaralumnos' element= {<ListarAlumos/>} exact></Route>
             <Route path='/agregaralumno' element= {<AgregarAlumno/>} exact></Route>
-            <Route path='/editaralumno/:_id' element= { <EditarUsuario/>} exact></Route>
-            </Route>
+            <Route path='/editaralumno/:_id' element= { <EditarUsuario/>} exact></Route>         
         </Routes>
+        <Footer />
     </BrowserRouter>
     </UserContextProvider>
 

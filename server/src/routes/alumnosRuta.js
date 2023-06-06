@@ -11,12 +11,14 @@ alumnosRouter.get('/mostraralumnos', getAlumno);
 
 alumnosRouter.post('/obteneralumno', getAlumnoById);
 
+//alumnosRouter.post('/actualizaralumno',[verificarToken, isAdmin], upDateAlumno);
 alumnosRouter.post('/actualizaralumno', upDateAlumno);
+
 
 alumnosRouter.post('/borraralumno', deleteAlumno);
 
-//alumnosRouter.post("/agregaralumno", [verificarToken, isAdmin]  , crearAlumno);
+alumnosRouter.post("/agregaralumno", [verificarToken, isAdmin]  , crearAlumno);
 
-alumnosRouter.post("/agregaralumno", crearAlumno);
+//alumnosRouter.post("/agregaralumno", crearAlumno);
 
 module.exports =  alumnosRouter ; 

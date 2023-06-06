@@ -15,17 +15,16 @@ const [tutor, setTutor] = useState('');
 
 const navegar = useNavigate();
 
-useEffect(() => {
+useEffect( () => {
  axios.post('/obteneralumno',{ _id : params._id})
  .then(res => {
-      console.log(res.data[0])
       const dataAlumno = res.data[0];
       setNombre(dataAlumno.nombre);
       setApellido(dataAlumno.apellido);
       setDni(dataAlumno.dni);
       setTutor(dataAlumno.tutor);
  })
-},)
+},[])
 
 function editarAlumno() {
   const actualizarAlumno = {
@@ -37,8 +36,13 @@ function editarAlumno() {
   }
   axios.post('/actualizaralumno' , actualizarAlumno) 
   .then(res => {Swal.fire('LISTO!','USUARIO ACTUALIZADO')},
-              navegar('/'))
+   setNombre(''),
+  setApellido(''),
+  setDni(''),
+  setTutor(''),
+              navegar('/home'))
   .catch(err => {console.log(err)})
+
   }
 
   return (

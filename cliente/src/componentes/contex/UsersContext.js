@@ -5,7 +5,7 @@ import axios from 'axios';
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
-      const [dataUser, setDataUser] = useState(null);
+      const [dataUser, setDataUser] = useState('');
       const [isLogin, setLogin] = useState(false);
       const [errorUser, setErrorUser] = useState(null);
 
@@ -21,7 +21,7 @@ const inicioSesion = async (email, password)=>{
       setDataUser({data});
       setLogin(true);
         } catch (error) {
-          setErrorUser(error.response.data.msg)
+      setDataUser(error.data);
         }
 }
 

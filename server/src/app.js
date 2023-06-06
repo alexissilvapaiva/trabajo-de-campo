@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const cookieparser = require('cookie-parser');
 const PORT = 5000 ; 
 const alumnosRuta = require('./routes/alumnosRuta');
 const usuarioRuta = require('./routes/usuarioRuta');
 const {createAdmin, createRoles} = require('./inicialSetup');
 
+
+app.use(cookieparser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors ({

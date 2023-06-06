@@ -5,45 +5,42 @@ import reactImg from './img/imagen1r.png'
 import mongoImg from './img/mongoImagen.png'
 import nodeImg from './img/nodeImagen.png'
 import { useNavigate } from 'react-router-dom'
-import {UserContext} from '../componentes/contex/UsersContext';
-//import axios from 'axios'
-//import Swal from 'sweetalert2'
+//import {UserContext} from '../componentes/contex/UsersContext';
+import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export default function LoginPage() {
-      const navegar = useNavigate();
+       const navegar = useNavigate();
       const [email, setEmail] = useState('');
-      const [password, setPassword] = useState('');
-      const[error, setError]= useState('');
-      const {inicioSesion, dataUser, errorUser } = useContext(UserContext);
+     const [password, setPassword] = useState('');
+    const[error, setError]= useState(false);
+      axios.defaults.withCredentials = true;
 
-
+      
       const handleSubmit = async (e) => {
-         inicioSesion(email,password)
-        console.log(dataUser);
-        //if(errorUser) setError(errorUser);
-        e.preventDefault();
-        navegar('/home');
-       /*
-          const usuario = {
+              const usuario = {
            email: email,
           password: password
   }
-       try {
+        e.preventDefault();
+
+        try {
            const {data} = await axios.post('/login',usuario,{
         headers: {'Content-Type': 'application/json'}
       })
       console.log(data);
       localStorage.setItem('userInfo', JSON.stringify(data))
-          ///.then(res => {
-                 // if(res.data){
-               //     navegar('/agregaralumno')
-                //  }
-          //}).catch(() => {Swal.fire('ERROR!','Ingrese nuevamente los datos')})
+          /*.then(res => {
+                  if(res.data){
+                    navegar('/agregaralumno')
+                  }
+          }).catch(() => {Swal.fire('ERROR!','Ingrese nuevamente los datos')})*/
              navegar('/home')
-        } catch (error) {
-          setError(error.response.data.msg)*/
+        }catch (error) {
+          setError(error.response.data.msg)
         }
-      
+      }
+
   return (
     <div className="jumbotron">
   <div className="container">
