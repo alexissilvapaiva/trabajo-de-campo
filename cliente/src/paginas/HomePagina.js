@@ -1,5 +1,8 @@
 import React from 'react'
 import './cssPages/HomePage.css'
+import reactImg from './img/imagen1r.png'
+import mongoImg from './img/mongoImagen.png'
+import nodeImg from './img/nodeImagen.png'
 
 export default function HomePage() {
   return (
@@ -17,6 +20,15 @@ export default function HomePage() {
                           A través de esta aplicación, podrá gestionar el registro de alumnos de la institución vinculada a la <b>Universidad Nacional de José C. Paz</b>. 
                           Podrá ver el reporte de alumnos en la base de datos, agregar alumnos, editar su información y, de ser necesario, eliminarlos.
                         </p>
+                         <div >
+                            &nbsp;   &nbsp;   &nbsp;   &nbsp;   &nbsp;
+    <img src={reactImg} alt='reactImagen' width='100px'/>
+      &nbsp;  &nbsp;  &nbsp;   &nbsp; 
+    <img src={nodeImg} alt='nodeImagen' width='100px'/>
+    </div>
+    <div class="row justify-content-center">
+     <img src={mongoImg} alt='mongoImagen' width='100px'/>
+    </div>
                     </div>
                 </div>
             </div>
