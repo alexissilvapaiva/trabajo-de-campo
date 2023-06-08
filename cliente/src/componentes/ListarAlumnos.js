@@ -21,33 +21,33 @@ const listaAlumno = dataAlumno.map(alumno => {
     )
 })
   return (
-    <div>
-      <div className='container'> 
-      <h1>
-      ListarAlumos
-      </h1> 
+     <div style={{margin: 70 }}>
+      <div className='container'>
+        <h1 style={{ color: '#012b85', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', }}>
+          Editar Alumno
+        </h1>
       </div>
-      <div className='container'> 
-      <div className='row'>
-        <div className='col'>
-          <table className="table table-striped">
-       <thead  >
-            <tr>
-           <th >Name</th>
-            <th >Last Name</th>
-            <th >DNI</th>
-             <th >Tutor</th>     
-             <th ></th>                 
-            </tr>
-           </thead>
-          <tbody>
-     {listaAlumno}
-     </tbody>
-     </table>
+      <div className='container'>
+        <div className='row'>
+          <div className='col'>
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th >Nombre</th>
+                  <th >Apellido</th>
+                  <th >DNI</th>
+                  <th >Tutor</th>
+                  <th ></th>
+                </tr>
+              </thead>
+              <tbody>
+                {listaAlumno}
+              </tbody>
+            </table>
           </div>
-         </div>
-     </div>
+        </div>
       </div>
+    </div>
   )
 }
 

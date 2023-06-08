@@ -15,7 +15,7 @@ function borrarAlumno(_id) {
  .then(res => {
       console.log(res.data)
       Swal.fire('LISTO!','El usuario fue ELIMINADO')
-      navegar(0);
+      navegar('/home');
  }).catch(error => console.log(error))
 }
 /*

@@ -15,7 +15,7 @@ export default function Nav() {
           <a className="nav-link active" aria-current="page" href="/home">Inicio</a>
         </li>
          <li className="nav-item">
-          <a className="nav-link" href="listaralumnos">Listar Alumnos</a>
+          <a className="nav-link" href="editaralumnos">Editar Alumnos</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="agregaralumno">Agregar Alumno</a>

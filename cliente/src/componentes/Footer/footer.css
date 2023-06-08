@@ -24,3 +24,12 @@ footer {
   width: 100%;
   height: 2.5rem;            /* Footer height */
 }
+
+.unpaz-container {
+  display: inline-block;
+  margin-left: 5px; 
+}
+
+.unpaz {
+  width: 200px; 
+}

@@ -51,7 +51,7 @@ const signIn = async (req, res) => {
 
   const userEncontrado = await UserDB.findOne({email : req.body.email}).populate('roles');
   console.log(userEncontrado)
-  if(!userEncontrado) return res.status(400).json({msg : 'No existe EMAIL registardo'})
+  if(!userEncontrado) return res.status(400).json({msg : 'No existe EMAIL registrado'})
 
   const checkContraseña = await compare(req.body.password, userEncontrado.password);
   

@@ -18,13 +18,16 @@ const navegar = useNavigate();
 useEffect( () => {
  axios.post('/obteneralumno',{ _id : params._id})
  .then(res => {
-      const dataAlumno = res.data[0];
-      setNombre(dataAlumno.nombre);
-      setApellido(dataAlumno.apellido);
-      setDni(dataAlumno.dni);
-      setTutor(dataAlumno.tutor);
+       const dataAlumno = res.data.find(alumno => alumno._id === params._id);
+      
+      if (dataAlumno) {
+        setNombre(dataAlumno.nombre);
+        setApellido(dataAlumno.apellido);
+        setDni(dataAlumno.dni);
+        setTutor(dataAlumno.tutor);
+      }
  })
-},[])
+},[params._id])
 
 function editarAlumno() {
   const actualizarAlumno = {
@@ -36,13 +39,8 @@ function editarAlumno() {
   }
   axios.post('/actualizaralumno' , actualizarAlumno) 
   .then(res => {Swal.fire('LISTO!','USUARIO ACTUALIZADO')},
-   setNombre(''),
-  setApellido(''),
-  setDni(''),
-  setTutor(''),
               navegar('/home'))
-  .catch(err => {console.log(err)})
-
+  .catch(err => console.log(err))
   }
 
   return (

@@ -15,10 +15,9 @@ const crearAlumno = async (req, res) => {
 
     const alumnoSaved= await newAlumno.save();
 
-    res.status(201).json(alumnoSaved);
+    res.status(201).json({msg : 'Alumno Creado!'});
   } catch (error) {
-    console.log(error);
-    return res.status(500).json(error);
+    return res.status(500).json({msg : 'El DNI ya existe'});
   }
 };
 
