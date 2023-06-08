@@ -44,10 +44,31 @@ Luego, acceder a la URL:<br>
 ## Librerías utilizadas
 Nuestra aplicación utiliza las siguientes librerías:
 <br>
+
 **Dependencies**
-- React
-- React-dom
+
+Server
+- react
+- react-dom
+- react-bootstrap
+- react-router-dom
+- react-scripts
+- sweetalert2
+- uniqid
+- web-vitals
+
+Cliente
+- bcrypt
+- bcryptjs
+- cookie-parse
+- cookie-parser
+- cors
+- dotenv
+- express
+- jsonwebtoken
+- mongoose
 <br>
 
 **Dev-Dependencies**
 - Nodemon
+
