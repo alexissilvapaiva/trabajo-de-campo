@@ -13,7 +13,7 @@ const [dni, setDni] = useState('');
 const [tutor, setTutor] = useState('');
 const[error, setError]= useState(false);
 
- const navegar = useNavigate();
+// const navegar = useNavigate();
 function agregarAlumno() {
   const alumno = {
     nombre : nombre,

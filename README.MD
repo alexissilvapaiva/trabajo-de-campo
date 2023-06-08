@@ -21,11 +21,11 @@ El administrador puede agregar un nuevo alumno a la base de datos, enviando los 
 <br>
 
 ### Editar alumno
-Si el administrador requiere modificar información existente sobre un alumno, puede hacerlo en el endpoint `/`. Debe proporcionar los nuevos datos del alumno y el servidor actualiza la información en la base de datos.
+Si el administrador requiere modificar información existente sobre un alumno, puede hacerlo en el endpoint `/editaralumnos`. Debe proporcionar los nuevos datos del alumno y el servidor actualiza la información en la base de datos.
 <br>
 
 ### Borrar alumno
-El administrador puede eliminar a un alumno de la base de datos, usando el endpoint `/`.
+El administrador puede eliminar a un alumno de la base de datos, usando el endpoint `/editaralumnos`.
 <br>
 
 ![caso-de-uso-admin](./IMG/casosDEUSO.jpeg)
