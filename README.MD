@@ -28,7 +28,7 @@ Si el administrador requiere modificar información existente sobre un alumno, p
 El administrador puede eliminar a un alumno de la base de datos, usando el endpoint `/`.
 <br>
 
-![caso-de-uso-admin](C:\Users\Alexis\Desktop\casosDEUSO.jpeg)
+![caso-de-uso-admin](./IMG/casosDEUSO.jpeg)
 <br>
 
 ## Correr la aplicación
