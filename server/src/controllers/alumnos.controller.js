@@ -3,14 +3,16 @@ const AlumnosDB = require('../models/Alumnos');
 
 //todo ok
 const crearAlumno = async (req, res) => {
-  const { nombre, apellido, dni, tutor } = req.body;
+  const {nombre, apellido, dni, direccion, tutor, genero} = req.body;
 
   try {
-    const newAlumno = new AlumnosDB({
-    nombre,
-    apellido,
-    dni, 
-    tutor,
+      const newAlumno = new AlumnosDB({
+      nombre,
+      apellido,
+      dni,
+      direccion,
+      tutor,
+      genero
     });
 
     const alumnoSaved= await newAlumno.save();
@@ -41,18 +43,22 @@ const crearAlumno = async (req, res) => {
 
 //actualizarAlumno() * !! se pasa por body, no por params.
 const upDateAlumno = async (req, res) => {
-     //const { _id , nombre, apellido, dni, tutor } = req.body;
-        await AlumnosDB.findByIdAndUpdate( {_id : req.body._id }, {
-          nombre : req.body.nombre,
-          apellido : req.body.apellido,
-          dni: req.body.dni,
-          tutor: req.body.tutor
-        }).then ( () => {
-          res.send('Se actualizo Correctamente');
-        }).catch(error => {
-          res.send(error);
-        })
-}
+  const { _id, direccion, genero, ...otherFields } = req.body;
+
+  try {
+    const updatedAlumno = {
+      direccion,
+      genero,
+      ...otherFields
+    };
+
+    await AlumnosDB.findByIdAndUpdate(_id, updatedAlumno);
+
+    res.send('Se actualizó correctamente');
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
 
 //borrarAlumno()
 const deleteAlumno = async (req,res) => {

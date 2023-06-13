@@ -44,27 +44,32 @@ function borrarAlumno(_id) {
 
   return (
 
-                                    <tr key={alumno._id}>
-                                        <td>{alumno.nombre}</td>
-                                        <td>{alumno.apellido}</td>
-                                        <td>{alumno.dni}</td>
-                                        <td>{alumno.tutor}</td>
-                                        <td>
-                                        <button type="button" class="btn btn-danger"
-                                           onClick={()=> {borrarAlumno(alumno._id)}}
-                                        >
-                                            <i className="tiny material-icons">BORRAR</i>
-                                        </button>
-                                        &nbsp;
-                                        <Link to={`/editaralumno/${alumno._id}`}>
-                                          
-                                        <button type="button" class="btn btn-success"
-                                        >
-                                            <i className="tiny material-icons">EDITAR</i>
-                                        </button>
-                                                           </Link>
-                                        </td>
-                                    </tr>    
+                                   <tr key={alumno._id}>
+            <td>{alumno.nombre}</td>
+            <td>{alumno.apellido}</td>
+            <td>{alumno.dni}</td>
+            <td>{alumno.direccion.calle}</td>
+            <td>{alumno.direccion.numero}</td>
+            <td>{alumno.direccion.codigo_postal}</td>
+            <td>{alumno.tutor}</td>
+            <td>{alumno.genero}</td>
+            <td className="text-end">
+                <Link to={`/editaralumno/${alumno._id}`}>
+                    <button type="button" className="btn btn-success me-2">
+                        EDITAR
+                    </button>
+                </Link>
+                <button
+                    type="button"
+                    className="btn btn-danger"
+                    onClick={() => {
+                        borrarAlumno(alumno._id);
+                    }}
+                >
+                    BORRAR
+                </button>
+            </td>
+        </tr>
                                     
   )
 }

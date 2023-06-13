@@ -2,6 +2,7 @@ const UserDB = require ('../models/User');
 const RoleDB = require('../models/Role');
 const jwt = require('jsonwebtoken');
 const {SECRET} = require('../config');
+const status = require('http2').constants
 const {encrypt, compare}  = require('../helpers/encriptado');
 
 
@@ -43,7 +44,7 @@ const signUp = async (req, res) => {
 
      //res.json( "---->" + newUser )
 
-    res.status(200).json({token});
+    res.status(status.HTTP_STATUS_OK).json({token});
 }
 
 
